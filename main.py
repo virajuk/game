@@ -1,18 +1,27 @@
-from game import GGrid, GTree, GScout
+from game import GTree, GScout, GGame, GBuildWorld
 
-grid = GGrid(9)
-# grid.save_png()
-# grid.examine_grid()
+world = GBuildWorld(9)
 
-tree1 = GTree()
-tree1.plant(0, 2, grid)
+game = GGame(world)
 
-tree2 = GTree()
-tree2.plant(4, 0, grid)
 
-scout = GScout()
-scout.place(4, 1, grid)
 
-scout.move("N")
 
-grid.examine_grid()
+# world = GWorld(9)
+#
+# tree1 = GTree()
+# tree1.plant(0, 2, world)
+#
+# tree2 = GTree()
+# tree2.plant(4, 0, world)
+#
+# scout = GScout()
+# scout.place(4, 1, world)
+#
+# # scout.move("N", world)
+# # scout.move("E", world)
+# # scout.move("S", world)
+# # scout.move("W", world)
+# scout.move("E", world)
+#
+# world.examine_grid()
