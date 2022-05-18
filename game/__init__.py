@@ -1,2 +1,2 @@
-__all__ = ['GRID']
+__all__ = ['GGrid', 'GTree']
 from .grid import *
