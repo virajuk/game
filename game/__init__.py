@@ -1,4 +1,4 @@
-__all__ = ['GTree', 'GScout', 'GGame', 'GBuildWorld']
+__all__ = ['GTree', 'GScout', 'GGame', 'GBuildWorld', 'GWorld']
 from .gworld import *
 from .gtree import *
 from .gscout import *

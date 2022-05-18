@@ -1,27 +1,38 @@
-from game import GTree, GScout, GGame, GBuildWorld
+from game import GTree, GBuildWorld, GScout, GWorld
 
-world = GBuildWorld(9)
+# world = GWorld(3)
+# world.read_grid()
+# print('#'*30)
+# print(world.grid)
 
-game = GGame(world)
+world = GBuildWorld(25)
+world.build_maze()
+world.read_grid()
 
-
-
-
-# world = GWorld(9)
-#
 # tree1 = GTree()
-# tree1.plant(0, 2, world)
+# coord = (0, 2)
+# world.add_tree(coord, tree1)
 #
 # tree2 = GTree()
-# tree2.plant(4, 0, world)
+# coord = (4, 0)
+# world.add_tree(coord, tree2)
 #
-# scout = GScout()
-# scout.place(4, 1, world)
+# scout1 = GScout()
+# coord = (4, 1)
+# world.add_scout(coord, scout1)
 #
-# # scout.move("N", world)
-# # scout.move("E", world)
-# # scout.move("S", world)
-# # scout.move("W", world)
+# scout2 = GScout()
+# coord = (8, 2)
+# world.add_scout(coord, scout2)
+
+########################
+# game = GGame(world)
+
+
+# scout.move("N", world)
 # scout.move("E", world)
-#
-# world.examine_grid()
+# scout.move("S", world)
+# scout.move("W", world)
+# scout.move("E", world)
+
+world.examine_grid()
