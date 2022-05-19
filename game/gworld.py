@@ -70,7 +70,7 @@ class GBuildWorld(GWorld):
         world_size = self.width*self.height
         # logger.info(f"{self.__class__.__name__} world size : {world_size}")
 
-        tree_count = int(world_size*0.6)
+        tree_count = int(world_size*0.5)
         # logger.info(f"{self.__class__.__name__} tree_count : {tree_count}")
 
         while tree_count > len(self.trees):

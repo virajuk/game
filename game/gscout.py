@@ -12,6 +12,9 @@ class GScout:
         self.x, self.y = 0, 0
         self.movements = ["N", "W", "S", "E"]
 
+    def move(self):
+        pass
+
     # def move(self, direction: str, grid: GWorld) -> None:
     #
     #     assert direction in self.movements, "Can't move"
