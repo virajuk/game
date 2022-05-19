@@ -12,8 +12,41 @@ class GScout:
         self.x, self.y = 0, 0
         self.movements = ["N", "W", "S", "E"]
 
-    def move(self):
-        pass
+    def valid_move(self, direction: str) -> bool:
+
+        if direction not in self.movements:
+            return False
+        return True
+
+    def try_move(self, direction: str) -> None:
+
+        if direction == "N":
+            logger.info(f"{self.__class__.__name__} try to move towards {direction}")
+            self.x -= 1
+        elif direction == "E":
+            logger.info(f"{self.__class__.__name__} try to move towards {direction}")
+            self.y += 1
+        elif direction == "S":
+            logger.info(f"{self.__class__.__name__} try to move towards {direction}")
+            self.x += 1
+        else:
+            logger.info(f"{self.__class__.__name__} try to move towards {direction}")
+            self.y -= 1
+
+    def move(self, direction: str) -> None:
+
+        if direction == "N":
+            logger.info(f"{self.__class__.__name__} moving towards {direction}")
+            self.x -= 1
+        elif direction == "E":
+            logger.info(f"{self.__class__.__name__} moving towards {direction}")
+            self.y += 1
+        elif direction == "S":
+            logger.info(f"{self.__class__.__name__} moving towards {direction}")
+            self.x += 1
+        else:
+            logger.info(f"{self.__class__.__name__} moving towards {direction}")
+            self.y -= 1
 
     # def move(self, direction: str, grid: GWorld) -> None:
     #

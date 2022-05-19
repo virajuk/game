@@ -1,20 +1,24 @@
-from game import GTree, GBuildWorld, GScout, GWorld
+from game import GTree, GBuildWorld, GScout, GWorld, GGame
 
 # world = GWorld(3)
 # world.read_grid()
 # print('#'*30)
 # print(world.grid)
 
-world = GBuildWorld(25)
+world = GBuildWorld(7)
+
+
 # world.build_maze()
 world.read_grid()
 
 scouts = world.scouts
-print(scouts)
 
 ########################
-# game = GGame(world)
+game = GGame(world)
 
+scout = game.world.scouts[0]
+
+game.move("E", scout)
 
 # scout.move("N", world)
 # scout.move("E", world)

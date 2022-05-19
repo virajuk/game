@@ -10,3 +10,4 @@ class GTree:
     def __init__(self):
         self.color = (0, 255, 0)
         self.x, self.y = 0, 0
+
