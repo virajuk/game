@@ -5,14 +5,14 @@ import pygame
 from logs import get_logger
 logger = get_logger('my_app')
 
-from aliens.ascreen import AScreen
+from aliens.agame import AGame
 
 
 class ABug:
 
     def __init__(self):
         self.image = pygame.image.load("images/bug.png")
-        self.screen = AScreen.get_instance()
+        self.screen = AGame.get_instance()
         self.x = random.randint(0, self.screen.WINDOW_SIZE[0] - 64)
         self.y = random.randint(50, int(self.screen.WINDOW_SIZE[1]*0.1))
         self.x_change = 0.3

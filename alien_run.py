@@ -4,7 +4,7 @@ import random
 import pygame
 
 from aliens import AShip
-from aliens import AScreen
+from aliens import AGame
 from aliens import ABug
 from aliens import ABullet
 
@@ -12,7 +12,8 @@ from logs import get_logger
 logger = get_logger('my_app')
 
 pygame.init()
-game = AScreen()
+game = AGame()
+game.screen = pygame.display.set_mode(game.WINDOW_SIZE)
 
 BULLET_IMAGE = "images/bullet.png"
 
@@ -24,8 +25,6 @@ background_image = pygame.image.load(game.BACKGROUND_IMAGE)
 ship = AShip()
 
 bug = ABug()
-
-
 
 # game loop
 running = True

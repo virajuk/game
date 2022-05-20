@@ -2,35 +2,33 @@ import pygame
 # from pygame import Surface
 
 
-class AScreen:
+class AGame:
 
     __instance = None
+    screen = None
 
     @staticmethod
     def get_instance():
 
-        if AScreen.__instance is None:
-            AScreen()
-        return AScreen.__instance
+        if AGame.__instance is None:
+            AGame()
+        return AGame.__instance
 
     def __init__(self) -> None:
-        """
 
-        :rtype: object
-        """
-        if AScreen.__instance is not None:
+        if AGame.__instance is not None:
             raise Exception("Fuck you!")
         else:
             self.WINDOW_TITLE = "ACID RAIN"
             self.WINDOW_SIZE = (800, 600)
             self.BACKGROUND_IMAGE = "images/background.jpg"
 
-            AScreen.__instance = self
+            AGame.__instance = self
 
 
 if __name__ == '__main__':
 
-    screen = AScreen()
+    screen = AGame()
     print(screen.WINDOW_TITLE)
 
     # screen1 = AScreen.get_instance()

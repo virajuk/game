@@ -3,7 +3,7 @@ import pygame
 from logs import get_logger
 logger = get_logger('my_app')
 
-from aliens.ascreen import AScreen
+from aliens.agame import AGame
 from aliens.abullet import ABullet
 
 
@@ -11,7 +11,7 @@ class AShip:
 
     def __init__(self):
         self.image = pygame.image.load("images/alien-ship.png")
-        self.screen = AScreen.get_instance()
+        self.screen = AGame.get_instance()
         self.x = int(self.screen.WINDOW_SIZE[0]/2) - 32
         self.y = self.screen.WINDOW_SIZE[1] - 64
         self.change = 0
