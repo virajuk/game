@@ -11,20 +11,26 @@ class AShip:
 
     def __init__(self):
         self.image = pygame.image.load("images/alien-ship.png")
-        self.screen = AGame.get_instance()
-        self.x = int(self.screen.WINDOW_SIZE[0]/2) - 32
-        self.y = self.screen.WINDOW_SIZE[1] - 64
+        self.game = AGame.get_instance()
+        self.x = int(self.game.WINDOW_SIZE[0]/2) - 32
+        self.y = self.game.WINDOW_SIZE[1] - 64
         self.change = 0
         self.bullet = ABullet()
+
+    def fly(self):
+        self.x += self.change
+        self.check_x()
+        self.game.screen.blit(self.image, (self.x, self.y))
 
     def check_x(self):
         if self.x < 0:
             self.x = 0
-            logger.info(f"{self.__class__.__name__} stopped {self.x}")
-        elif self.x > self.screen.WINDOW_SIZE[0] - 64:
-            self.x = self.screen.WINDOW_SIZE[0] - 64
-            logger.info(f"{self.__class__.__name__} stopped {self.x}")
+        elif self.x > self.game.WINDOW_SIZE[0] - 64:
+            self.x = self.game.WINDOW_SIZE[0] - 64
 
     def fire_bullet(self):
-        pass
-        # fire_bullet(bullet_x, bullet_y)
+        self.bullet.x = self.x
+        self.bullet.y = self.y
+        self.bullet.state = "FIRED"
+        self.game.screen.blit(self.bullet.image, (self.bullet.x + 16, self.bullet.y))
+        return self.bullet

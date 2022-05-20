@@ -1,6 +1,3 @@
-import time
-import random
-
 import pygame
 
 from aliens import AShip
@@ -13,24 +10,17 @@ logger = get_logger('my_app')
 
 pygame.init()
 game = AGame()
-game.screen = pygame.display.set_mode(game.WINDOW_SIZE)
 
-BULLET_IMAGE = "images/bullet.png"
+background_image = game.start_game()
 
-# create screen
-screen = pygame.display.set_mode(game.WINDOW_SIZE)
-pygame.display.set_caption(game.WINDOW_TITLE)
-background_image = pygame.image.load(game.BACKGROUND_IMAGE)
-
-ship = AShip()
-
-bug = ABug()
+game.ship = AShip()
+game.bug = ABug()
 
 # game loop
 running = True
 while running:
 
-    screen.blit(background_image, (0, 0))
+    game.screen.blit(background_image, (0, 0))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT or (event.type == pygame.KEYUP and event.key == pygame.K_q):
@@ -39,29 +29,27 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 # logger.info(f" LEFT pressed")
-                ship.change = -0.3
+                game.ship.change = -0.3
             if event.key == pygame.K_RIGHT:
                 # logger.info(f" RIGHT pressed")
-                ship.change = 0.3
+                game.ship.change = 0.3
             if event.key == pygame.K_SPACE:
-                if ship.bullet.state == "READY":
-                    ship.bullet.x = ship.x
-                    logger.info(f" bullet x {ship.bullet.x}")
-                    # fire_bullet(bullet_x, bullet_y)
+                if game.ship.bullet.state == "READY":
+                    game.ship.bullet.x = game.ship.x
+                    logger.info(f" bullet x {game.ship.bullet.x}")
+                    # ship.fire_bullet()
+                    bullet = game.ship.fire_bullet()
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
                 # logger.info(f" KEY released")
-                ship.change = 0
+                game.ship.change = 0
 
-    ship.x += ship.change
-    ship.check_x()
-    screen.blit(ship.image, (ship.x, ship.y))
+    game.ship.fly()
+    game.bug.fly()
 
-    bug.x += bug.x_change
-    bug.check_location()
-    screen.blit(bug.image, (bug.x, bug.y))
-
-    # screen.blit(ship.bullet.image, (ship.bullet.x, ship.bullet.y))
+    # if  is not None:
+    #     print("hello")
+    # game.screen.blit(ship.bullet.image, (ship.bullet.x, ship.bullet.y))
 
     pygame.display.update()

@@ -6,6 +6,8 @@ class AGame:
 
     __instance = None
     screen = None
+    ship = None
+    bug = None
 
     @staticmethod
     def get_instance():
@@ -24,6 +26,13 @@ class AGame:
             self.BACKGROUND_IMAGE = "images/background.jpg"
 
             AGame.__instance = self
+
+    def start_game(self):
+
+        self.screen = pygame.display.set_mode(self.WINDOW_SIZE)
+        pygame.display.set_caption(self.WINDOW_TITLE)
+        background_image = pygame.image.load(self.BACKGROUND_IMAGE)
+        return background_image
 
 
 if __name__ == '__main__':

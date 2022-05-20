@@ -15,3 +15,8 @@ class ABullet:
         self.y = self.screen.WINDOW_SIZE[1] - 64
         self.change = 2
         self.state = "READY"
+
+    # def check_location(self):
+    #     if self.y < 0:
+    #         self.y = 836
+    #         self.state = "READY"
