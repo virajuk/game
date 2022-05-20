@@ -32,3 +32,6 @@ class AShip:
         self.bullet.x = self.x
         self.bullet.y = self.y
         self.bullet.fire()
+        self.game.bullet = self.bullet
+        self.game.bullets.append(self.bullet)
+        self.bullet = ABullet()

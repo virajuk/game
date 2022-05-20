@@ -35,8 +35,10 @@ while running:
                 game.ship.change = 0.3
             if event.key == pygame.K_SPACE:
                 if game.ship.bullet.state == "READY":
+                    # logger.info(f" no of bullets {len(game.bullets)}")
                     game.ship.fire_bullet()
-                    logger.info(f" ship fired bullet {(game.ship.x, game.ship.y)}")
+                    # logger.info(f" no of bullets {len(game.bullets)}")
+                    # logger.info(f" ship fired bullet {(game.ship.x, game.ship.y)}")
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
@@ -46,7 +48,11 @@ while running:
     game.ship.fly()
     game.bug.fly()
 
-    if game.ship.bullet.state == "FIRED":
-        game.ship.bullet.fire()
+    # if game.bullet is not None and game.bullet.state == "FIRED":
+    #     game.bullet.fire()
+
+    if len(game.bullets):
+        for bullet in game.bullets:
+            bullet.fire()
 
     pygame.display.update()

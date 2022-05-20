@@ -8,6 +8,8 @@ class AGame:
     screen = None
     ship = None
     bug = None
+    bullet = None
+    bullets = []
 
     @staticmethod
     def get_instance():

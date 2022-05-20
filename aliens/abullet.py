@@ -13,7 +13,7 @@ class ABullet:
         self.game = AGame.get_instance()
         self.x = 0
         self.y = 0
-        self.change = 2
+        self.change = 0.5
         self.state = "READY"
 
     def fire(self):
@@ -25,6 +25,7 @@ class ABullet:
 
     def check_location(self):
         if self.y < 0:
-            self.y = self.game.WINDOW_SIZE[1] - 64
-            self.state = "READY"
-            logger.info(f" bullet y coord {self.y}")
+            self.game.bullets.remove(self)
+            # self.y = self.game.WINDOW_SIZE[1] - 64
+            # self.state = "READY"
+            # logger.info(f" bullet y coord {self.y}")
