@@ -114,7 +114,7 @@ while running:
         bullet_y = 836
         bullet_state = "READY"
     if bullet_state is "FIRED":
-        fire_bullet(bullet_x, bullet_y)
+        fire_bullet(bullet_x, bullet_y) 
         bullet_y -= bullet_ychange
 
     enemy(enemy_x, enemy_y)
