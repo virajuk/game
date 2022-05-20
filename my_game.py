@@ -65,7 +65,6 @@ running = True
 while running:
 
     screen.fill(BACKGROUND_COLOR)
-
     screen.blit(background_image, (0, 0))
 
     for event in pygame.event.get():
