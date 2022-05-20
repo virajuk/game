@@ -31,6 +31,4 @@ class AShip:
     def fire_bullet(self):
         self.bullet.x = self.x
         self.bullet.y = self.y
-        self.bullet.state = "FIRED"
-        self.game.screen.blit(self.bullet.image, (self.bullet.x + 16, self.bullet.y))
-        return self.bullet
+        self.bullet.fire()
