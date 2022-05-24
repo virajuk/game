@@ -48,11 +48,10 @@ while running:
     game.ship.fly()
     game.bug.fly()
 
-    # if game.bullet is not None and game.bullet.state == "FIRED":
-    #     game.bullet.fire()
-
     if len(game.bullets):
         for bullet in game.bullets:
             bullet.fire()
 
     pygame.display.update()
+
+pygame.quit()
