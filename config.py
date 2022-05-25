@@ -1,0 +1,8 @@
+WIDTH = 1600
+HEIGHT = 912
+FPS = 60
+TILESIZE = 64
+
+WORLD_MAP = [
+    []
+]
