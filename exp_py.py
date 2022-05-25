@@ -24,13 +24,18 @@ while running:
         if event.type == pygame.QUIT or (event.type == pygame.KEYUP and event.key == pygame.K_q):
             running = False
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                knight.walk()
+        # if event.type == pygame.KEYDOWN:
+        #     if event.key == pygame.K_SPACE:
+        #         knight.walk()
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_SPACE:
-                knight.__init__(500, 400)
+                x, y = knight.rect.center
+                knight.__init__(x, y)
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                knight.walk()
 
     screen.blit(background, (0, 0))
     knight_group.draw(screen)
