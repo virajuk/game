@@ -37,6 +37,11 @@ while running:
             if event.button == 1:
                 knight.walk()
 
+        if event.type == pygame.MOUSEBUTTONUP:
+            if event.button == 1:
+                x, y = knight.rect.center
+                knight.__init__(x, y)
+
     screen.blit(background, (0, 0))
     knight_group.draw(screen)
     knight_group.update()

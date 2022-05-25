@@ -23,24 +23,12 @@ class Knight(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
 
-        self.change_x, self.change_y = 0, 0
-        self.current_x, self.current_y = x, y
-        self.new_x, self.new_y = 0, 0
-
     def update(self):
 
         self.current_sprite += 0.3
         if self.current_sprite >= len(self.sprites):
             self.current_sprite = 0
         self.image = self.sprites[int(self.current_sprite)]
-
-        if self.current_x != self.new_x or self.current_y != self.new_y:
-            self.current_x += self.change_x
-            self.current_y += self.change_y
-            self.rect.center = (self.current_x, self.current_y)
-
-            print(self.current_x, self.new_x, self.change_x, self.current_y, self.new_y, self.change_y)
-            print(self.rect.center)
 
     def walk(self):
         self.sprites = []
@@ -62,18 +50,7 @@ class Knight(pygame.sprite.Sprite):
             self.current_sprite = 3
         self.image = self.sprites[int(self.current_sprite)]
 
-        self.current_x, self.current_y = self.rect.center
-        self.new_x, self.new_y = pygame.mouse.get_pos()
-        self.change_x, self.change_y = 4, 1
-        self.update()
+        self.rect.center = pygame.mouse.get_pos()
 
 
-
-
-
-    # def move(self):
-    #     start_x, start_y = self.rect.center
-    #     end_x, end_y = pygame.mouse.get_pos()
-    #
-    #     self.rect.center = pygame.mouse.get_pos()
 
