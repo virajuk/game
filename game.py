@@ -8,6 +8,7 @@ class Game:
 
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
+        pygame.display.set_caption("MAN KIND")
         self.clock = pygame.time.Clock()
 
     def run(self):
@@ -15,7 +16,7 @@ class Game:
         running = True
         while running:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or (event.type == pygame.KEYUP and event.key == pygame.K_q):
                     running = False
 
             self.screen.fill('black')
