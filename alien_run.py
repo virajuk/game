@@ -38,7 +38,7 @@ while running:
                     # logger.info(f" no of bullets {len(game.bullets)}")
                     game.ship.fire_bullet()
                     # logger.info(f" no of bullets {len(game.bullets)}")
-                    # logger.info(f" ship fired bullet {(game.ship.x, game.ship.y)}")
+                    logger.info(f" ship fired bullet {(game.ship.x, game.ship.y)}")
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT:
